@@ -25,16 +25,16 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty
+	@NotEmpty(message="Username is required.")
 	@Size(min=3, max=30, message="Username must be between 3 and 30 characters.")
 	private String userName;
 	
-	@NotEmpty
-	@Email(message="Enter a valid email.")
+	@NotEmpty(message="Email is required.")
+	@Email(message="Email is not vaild.")
 	private String email;
 	
 	
-	@NotEmpty
+	@NotEmpty(message="Password is required.")
 	@Size(min=8, max=50, message="Password must be between 8 and 50 characters.")
 	private String password;
 	
@@ -42,12 +42,14 @@ public class User {
 	@Size(min=8, max=50, message="Confirm Password does not match.")
 	private String confirm;
 	
-	// This will not allow the createdAt column to be updated after creation
+	// Prevent createdAt column to be updated after creation
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
+    
+    // Time stamp
     @PrePersist
     protected void onCreate(){
         this.createdAt = new Date();
@@ -57,8 +59,57 @@ public class User {
         this.updatedAt = new Date();
     }
 	
-    
+    // Constructor
 	public User() {}
 	
+	public User(String userName, String email, String password, String confirm) {
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
+		this.confirm = confirm;
+	}
 	
+	// Getters and Setters
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getConfirm() {
+		return confirm;
+	}
+	public void setConfirm(String confirm) {
+		this.confirm = confirm;
+	}
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
 }

@@ -7,15 +7,32 @@
 <!-- form:form -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!-- for rendering errors on PUT routes -->
-<%@ page isErrorPage="true" %>    
-    
+<%@ page isErrorPage="true" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Vocabee</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-	<h1>Welcome to Vocabee</h1>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+		<div class="col">
+			
+		</div>
+		<div class="col">
+			<a href="/sign_up" class="btn btn-primary">Sign Up</a>
+			<a href="/login" class="btn btn-outline-primary">Login</a>		
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h1>Welcome to Vocabee</h1>
+				<h3>Better way to build your vocabulary!</h3>					
+			</div>
+		</div>
+	</div>  
 </body>
 </html>
