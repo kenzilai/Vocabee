@@ -26,14 +26,14 @@ public class HomeController {
         return "index.jsp";
     }
     
-    @GetMapping("/sign_up")
+    @GetMapping("/register")
     public String signUp(Model model) {
         model.addAttribute("newUser", new User());
         model.addAttribute("newLogin", new LoginUser());
         return "register.jsp";
     }
-    
-    @PostMapping("/register")
+
+    @PostMapping("/register/validation")
     public String register(@Valid @ModelAttribute("newUser") User newUser, 
             BindingResult result, Model model, HttpSession session) {
         
@@ -41,6 +41,26 @@ public class HomeController {
         if(result.hasErrors()) {
         	model.addAttribute("newLogin", new LoginUser());
             return "register.jsp";
+        }
+        return "redirect:/home";
+    }
+    
+    @GetMapping("/login")
+    public String login(Model model) {
+        model.addAttribute("newUser", new User());
+        model.addAttribute("newLogin", new LoginUser());
+        return "login.jsp";
+    }
+    
+    @PostMapping("/login/validation")
+    public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, 
+            BindingResult result, Model model, HttpSession session) {
+        
+         User user = userServ.login(newLogin, result);
+    
+        if(result.hasErrors()) {
+            model.addAttribute("newUser", new User());
+            return "login.jsp";
         }
         return "redirect:/home";
     }

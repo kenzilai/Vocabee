@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!-- c:out ; c:forEach etc. --> 
+    <!-- c:out ; c:forEach etc. --> 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- Formatting (dates) --> 
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -19,20 +19,27 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
 		<div class="col">
-			
+		
 		</div>
 		<div class="col">
+			<a href="/" class="btn btn-outline-primary">Go Back</a>		
 			<a href="/register" class="btn btn-primary">Sign Up</a>
-			<a href="/login" class="btn btn-outline-primary">Login</a>		
 		</div>
 	</nav>
 	<div class="container">
-		<div class="row">
-			<div class="col">
-				<h1>Welcome to Vocabee</h1>
-				<h3>Better way to build your vocabulary!</h3>					
-			</div>
-		</div>
-	</div>  
+		<form:form action="/login/validation" method="post" modelAttribute="newLogin">
+		    <div class="mt-3">
+		        <form:label path="email">Email</form:label>
+		        <form:input path="email" type="email" class="form-control"/>
+		        <form:errors path="email" class="text-danger"/>
+		    </div>
+		    <div class="mt-3">
+		        <form:label path="password">Password</form:label>
+		        <form:input path="password" type="password" class="form-control"/>
+		        <form:errors path="password" class="text-danger"/>
+		    </div>
+		    <input class="btn btn-primary mt-3" type="submit" value="Login"/>
+		</form:form>
+	</div>
 </body>
 </html>

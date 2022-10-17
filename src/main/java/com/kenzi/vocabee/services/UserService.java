@@ -18,7 +18,7 @@ public class UserService {
 	    private UserRepository userRepo;
 	  
 	    public User register(User newUser, BindingResult result) {
-    	Optional<User> potentialUser = this.userRepo.findByEmail(newUser.getEmail());
+	    	Optional<User> potentialUser = this.userRepo.findByEmail(newUser.getEmail());
 	    	if(!potentialUser.isPresent()) {
 	    		result.rejectValue("email", "EmailExist", "Email already exist.");
 	    	}
@@ -35,7 +35,18 @@ public class UserService {
     	}
 	    
 	    public User login(LoginUser newLoginObject, BindingResult result) {
-	        // TO-DO: Additional validations!
-	        return null;
+	    	Optional<User> potentialUser = this.userRepo.findByEmail(newLoginObject.getEmail());
+	    	if(!potentialUser.isPresent()) {
+	    		result.rejectValue("email", "EmailNotFound", "Email does not exist.");
+	    	} else {
+	    		if(!BCrypt.checkpw(newLoginObject.getPassword(), potentialUser.get().getPassword())) {
+	    		    result.rejectValue("password", "Matches", "Invalid Password!");
+	    		}
+	    	}
+	    	if(result.hasErrors()) {
+	    	    return null;
+	    	} else {
+	    		return potentialUser.get();
+	    	}
 	    }
 }

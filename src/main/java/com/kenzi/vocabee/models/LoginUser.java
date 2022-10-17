@@ -16,7 +16,7 @@ public class LoginUser {
 	
 	public LoginUser() {}
 
-//	Getters & Setters
+	//	Getters & Setters
 	public String getEmail() {
 		return email;
 	}

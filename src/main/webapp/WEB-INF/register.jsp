@@ -27,7 +27,7 @@
 		</div>
 	</nav>
 	<div class="container">
-		<form:form action="/register" method="post" modelAttribute="newUser">
+		<form:form action="/register/validation" method="post" modelAttribute="newUser">
 		    <div class="mt-3">
 		        <form:label path="userName">User Name</form:label>
 		        <form:input path="userName" type="text" class="form-control"/>
@@ -48,7 +48,7 @@
 		        <form:input path="confirm" type="password" class="form-control"/>
 		        <form:errors path="confirm" class="text-danger"/>     
 		    </div>    
-		    <input class="btn btn-primary mt-3" type="submit" value="Submit"/>
+		    <input class="btn btn-primary mt-3" type="submit" value="Sign Up"/>
 		</form:form>
 	</div>
 </body>
