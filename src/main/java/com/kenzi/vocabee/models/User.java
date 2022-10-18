@@ -21,10 +21,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name="users")
 public class User {
 	
+	// Attributes
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotEmpty(message="Username is required.")
 	@Size(min=3, max=30, message="Username must be between 3 and 30 characters.")
 	private String userName;
@@ -33,7 +34,7 @@ public class User {
 	@Email(message="Email is not vaild.")
 	private String email;
 	
-	
+	@Transient
 	@NotEmpty(message="Password is required.")
 	@Size(min=8, max=50, message="Password must be between 8 and 50 characters.")
 	private String password;
@@ -41,6 +42,8 @@ public class User {
 	@Transient
 	@Size(min=8, max=50, message="Confirm Password does not match.")
 	private String confirm;
+	
+	private String hashedPassword;
 	
 	// Prevent createdAt column to be updated after creation
     @Column(updatable=false)
@@ -112,4 +115,11 @@ public class User {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	public String getHashedPassword() {
+		return hashedPassword;
+	}
+	public void setHashedPassword(String hashedPassword) {
+		this.hashedPassword = hashedPassword;
+	}
+	
 }

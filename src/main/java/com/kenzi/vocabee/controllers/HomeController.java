@@ -29,7 +29,6 @@ public class HomeController {
     @GetMapping("/register")
     public String signUp(Model model) {
         model.addAttribute("newUser", new User());
-        model.addAttribute("newLogin", new LoginUser());
         return "register.jsp";
     }
 
@@ -37,17 +36,17 @@ public class HomeController {
     public String register(@Valid @ModelAttribute("newUser") User newUser, 
             BindingResult result, Model model, HttpSession session) {
         
-    	this.userServ.register(newUser, result);
+    	User user = this.userServ.register(newUser, result);
         if(result.hasErrors()) {
         	model.addAttribute("newLogin", new LoginUser());
             return "register.jsp";
         }
+        session.setAttribute("loggedInUserId", user.getId());
         return "redirect:/home";
     }
     
     @GetMapping("/login")
     public String login(Model model) {
-        model.addAttribute("newUser", new User());
         model.addAttribute("newLogin", new LoginUser());
         return "login.jsp";
     }
@@ -62,6 +61,17 @@ public class HomeController {
             model.addAttribute("newUser", new User());
             return "login.jsp";
         }
+        session.setAttribute("loggedInUserId", user.getId());
         return "redirect:/home";
+    }
+    
+    @GetMapping("/home")
+    public String dashboard(HttpSession session, Model model) {
+        Long id = (Long) session.getAttribute("loggedInUserId");
+        
+        User loggedInUser = this.userServ.findOneUser(id);
+        model.addAttribute("loggedInUser", loggedInUser);
+        
+    	return "dashboard.jsp";
     }
 }
