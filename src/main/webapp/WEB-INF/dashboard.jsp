@@ -21,7 +21,7 @@
 		<div class="col">
 		</div>
 		<div class="col">
-			<a href="" class="btn btn-outline-primary">Log Out</a>		
+			<a href="/logout" class="btn btn-outline-primary">Log Out</a>		
 		</div>
 	</nav>
 	<div class="container">

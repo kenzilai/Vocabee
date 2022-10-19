@@ -33,9 +33,7 @@ public class HomeController {
     }
 
     @PostMapping("/register/validation")
-    public String register(@Valid @ModelAttribute("newUser") User newUser, 
-            BindingResult result, Model model, HttpSession session) {
-        
+    public String register(@Valid @ModelAttribute("newUser") User newUser, BindingResult result, Model model, HttpSession session) {
     	User user = this.userServ.register(newUser, result);
         if(result.hasErrors()) {
         	model.addAttribute("newLogin", new LoginUser());
@@ -52,11 +50,8 @@ public class HomeController {
     }
     
     @PostMapping("/login/validation")
-    public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, 
-            BindingResult result, Model model, HttpSession session) {
-        
-         User user = userServ.login(newLogin, result);
-    
+    public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, BindingResult result, Model model, HttpSession session) {
+        User user = userServ.login(newLogin, result);
         if(result.hasErrors()) {
             model.addAttribute("newUser", new User());
             return "login.jsp";
@@ -67,11 +62,18 @@ public class HomeController {
     
     @GetMapping("/home")
     public String dashboard(HttpSession session, Model model) {
-        Long id = (Long) session.getAttribute("loggedInUserId");
-        
+        Long id = (Long) session.getAttribute("loggedInUserId");        
+        if(id == null) {
+        	return "redirect:/login";
+        }
         User loggedInUser = this.userServ.findOneUser(id);
         model.addAttribute("loggedInUser", loggedInUser);
-        
     	return "dashboard.jsp";
+    }
+    
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+    	session.invalidate();
+    	return "redirect:/";
     }
 }
