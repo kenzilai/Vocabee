@@ -26,6 +26,35 @@
 	</nav>
 	<div class="container">
 		<h1>Welcome back to Vocabee, ${loggedInUser.userName}</h1>
+		<div class="row mt-5">
+			<h4 class="col">
+				<a href="/{deckbox_name}">Today</a>
+				<p>card # holder</p>
+			</h4>
+			<h4 class="col">
+				<a href="">1 Day</a>
+				<p>card # holder</p>
+			</h4>
+			<h4 class="col">
+				<a href="">7 Days</a>
+				<p>card # holder</p>
+			</h4>
+			<h4 class="col">
+				<a href="">1 Month</a>
+				<p>card # holder</p>
+			</h4>
+			<h4 class="col">
+				<a href="">3 Months</a>
+				<p>card # holder</p>
+			</h4>
+			<h4 class="col">
+				<a href="">Retired</a>
+				<p>card # holder</p>
+			</h4>
+		</div>
+		<div>
+			
+		</div>
 	</div>
 </body>
 </html>

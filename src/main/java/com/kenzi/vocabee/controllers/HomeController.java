@@ -76,4 +76,15 @@ public class HomeController {
     	session.invalidate();
     	return "redirect:/";
     }
+    
+    @GetMapping("/{deckbox_name}")
+    public String deckbox(HttpSession session, Model model) {
+        Long id = (Long) session.getAttribute("loggedInUserId");        
+        if(id == null) {
+        	return "redirect:/login";
+        }
+        User loggedInUser = this.userServ.findOneUser(id);
+        model.addAttribute("loggedInUser", loggedInUser);
+    	return "deckbox.jsp";
+    }
 }
