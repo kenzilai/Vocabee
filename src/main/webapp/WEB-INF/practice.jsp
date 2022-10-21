@@ -19,20 +19,25 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
 		<div class="col">
-			
+			<a href="/dashboard" class="btn btn-outline-primary">< Back</a>	
 		</div>
+			<a href="/logout" class="btn btn-outline-primary">Log Out</a>		
 		<div class="col">
-			<a href="/login" class="btn btn-outline-primary">Login</a>
-			<a href="/register" class="btn btn-primary">Sign Up</a>
 		</div>
 	</nav>
 	<div class="container">
-		<div class="row">
-			<div class="col">
-				<h1>Welcome to Vocabee</h1>
-				<h3>Better way to build your vocabulary!</h3>					
+		<div class="row mt-3">
+			<div class="col-sm-6">
+				<div class="card">
+					<h5 class="p-5 text-center">{Vocabulary}</h5>
+				</div>
 			</div>
 		</div>
-	</div>  
+		<div class="mt-3">		
+			<button class="btn btn-danger">Incorrect</button>
+			<button class="btn btn-warning" style="color:#fff;">Partially</button>
+			<button class="btn btn-success">Correct</button>
+		</div>
+	</div>
 </body>
 </html>

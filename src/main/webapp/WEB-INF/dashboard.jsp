@@ -52,9 +52,22 @@
 				<p>card # holder</p>
 			</h4>
 		</div>
-		<div>
-			
-		</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Word</th>
+					<th>Definition</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${allVocabs}" var="vocabObj">
+					<tr>
+						<td>${vocabObj.word}</td>
+						<td>${vocabObj.definition}</td>						
+					</tr>
+				</c:forEach>			
+			</tbody>				
+		</table>
 	</div>
 </body>
 </html>

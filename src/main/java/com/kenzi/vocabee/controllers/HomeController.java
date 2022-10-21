@@ -1,5 +1,7 @@
 package com.kenzi.vocabee.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -13,13 +15,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.kenzi.vocabee.models.LoginUser;
 import com.kenzi.vocabee.models.User;
+import com.kenzi.vocabee.models.Vocabulary;
 import com.kenzi.vocabee.services.UserService;
+import com.kenzi.vocabee.services.VocabularyService;
 
 @Controller
 public class HomeController {
 	
      @Autowired
      private UserService userServ;
+     
+     @Autowired
+     private VocabularyService vocabServ;
     
     @GetMapping("/")
     public String index() {
@@ -40,7 +47,7 @@ public class HomeController {
             return "register.jsp";
         }
         session.setAttribute("loggedInUserId", user.getId());
-        return "redirect:/home";
+        return "redirect:/dashboard";
     }
     
     @GetMapping("/login")
@@ -57,10 +64,10 @@ public class HomeController {
             return "login.jsp";
         }
         session.setAttribute("loggedInUserId", user.getId());
-        return "redirect:/home";
+        return "redirect:/dashboard";
     }
     
-    @GetMapping("/home")
+    @GetMapping("/dashboard")
     public String dashboard(HttpSession session, Model model) {
         Long id = (Long) session.getAttribute("loggedInUserId");        
         if(id == null) {
@@ -68,6 +75,10 @@ public class HomeController {
         }
         User loggedInUser = this.userServ.findOneUser(id);
         model.addAttribute("loggedInUser", loggedInUser);
+        
+        List<Vocabulary> allVocabs = this.vocabServ.findAllVocabularies();
+        model.addAttribute("allVocabs", allVocabs);
+        
     	return "dashboard.jsp";
     }
     
@@ -85,6 +96,21 @@ public class HomeController {
         }
         User loggedInUser = this.userServ.findOneUser(id);
         model.addAttribute("loggedInUser", loggedInUser);
+        
+        List<Vocabulary> allUserVocabs = this.vocabServ.findUserVocabularies(id);
+        model.addAttribute("allUserVocabs", allUserVocabs);
+        
     	return "deckbox.jsp";
+    }
+    
+    @GetMapping("/{deckbox_name}/practice")
+    public String practice(HttpSession session, Model model) {
+        Long id = (Long) session.getAttribute("loggedInUserId");        
+        if(id == null) {
+        	return "redirect:/login";
+        }
+        User loggedInUser = this.userServ.findOneUser(id);
+        model.addAttribute("loggedInUser", loggedInUser);
+    	return "practice.jsp";
     }
 }

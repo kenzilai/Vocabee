@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<!-- c:out ; c:forEach etc. --> 
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!-- Formatting (dates) --> 
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!-- form:form -->
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!-- for rendering errors on PUT routes -->
+<%@ page isErrorPage="true" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,15 +19,21 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
 		<div class="col">
+			<a href="/dashboard" class="btn btn-outline-primary">< Back</a>	
 		</div>
 		<div class="col">
 			<a href="/logout" class="btn btn-outline-primary">Log Out</a>		
 		</div>
 	</nav>
 	<div class="container-md">
-		<div class="mt-5">
-			<h2>{Deck Box Name}</h2>
-			<h3>{#} Vocabularies</h3>
+		<div class="row">
+			<div class="mt-5 col-sm-6">
+				<h2>{Deck Box Name}</h2>
+				<h3>{#} Vocabularies</h3>
+			</div>
+			<div class="mt-5 col-sm-6">
+				<a href="/{deckbox_name}/practice" class="btn btn-success">Start Practice</a>	
+			</div>
 		</div>
 		<div class="row mt-3">
 			<div class="col-sm-6">
@@ -32,6 +47,22 @@
 				</div>
 			</div>
 		</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Word</th>
+					<th>Definition</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${allUserVocabs}" var="vocabObj">
+					<tr>
+						<td>${vocabObj.word}</td>
+						<td>${vocabObj.definition}</td>						
+					</tr>
+				</c:forEach>			
+			</tbody>				
+		</table>
 	</div>
 </body>
 </html>

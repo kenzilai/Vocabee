@@ -1,12 +1,15 @@
 package com.kenzi.vocabee.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -44,6 +47,9 @@ public class User {
 	private String confirm;
 	
 	private String hashedPassword;
+	
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+	private List<Vocabulary> vocabularies;
 	
 	// Prevent createdAt column to be updated after creation
     @Column(updatable=false)
@@ -103,6 +109,12 @@ public class User {
 	public void setConfirm(String confirm) {
 		this.confirm = confirm;
 	}
+	public List<Vocabulary> getVocabularies() {
+		return vocabularies;
+	}
+	public void setVocabularies(List<Vocabulary> vocabularies) {
+		this.vocabularies = vocabularies;
+	}
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -121,5 +133,4 @@ public class User {
 	public void setHashedPassword(String hashedPassword) {
 		this.hashedPassword = hashedPassword;
 	}
-	
 }
