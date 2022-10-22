@@ -9,5 +9,5 @@ import com.kenzi.vocabee.models.Vocabulary;
 
 @Repository
 public interface VocabularyRepository extends CrudRepository<Vocabulary, Long> {
-	List<Vocabulary> findAllByUser(Long user_id);
+	List<Vocabulary> findAllByUserId(Long user_id);
 }

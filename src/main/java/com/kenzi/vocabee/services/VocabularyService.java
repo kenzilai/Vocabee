@@ -19,6 +19,6 @@ public class VocabularyService {
 	}
 	
 	public List<Vocabulary> findUserVocabularies(Long id) {
-		return (List<Vocabulary>) this.vocabRepo.findAllByUser(id);
+		return (List<Vocabulary>) this.vocabRepo.findAllByUserId(id);
 	}
 }

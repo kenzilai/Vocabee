@@ -17,18 +17,23 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-		<div class="col">
-		
-		</div>
-		<div class="col">
-			<a href="/" class="btn btn-outline-primary">Go Back</a>		
-			<a href="/login" class="btn btn-outline-primary">Login</a>		
-		</div>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+		<div class="container">
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">		
+				<a class="navbar-brand navbar-nav me-auto mb-2 mb-lg-0" href="/">Vocabee</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="d-flex">
+					<a href="/" class="btn btn-outline-light me-2">Go Back</a>		
+					<a href="/login" class="btn btn-light">Login</a>	
+				</div>
+	  		</div>
+  		</div>
 	</nav>
 	<div class="container">
 		<form:form action="/register/validation" method="post" modelAttribute="newUser">
-		    <div class="mt-3">
+		    <div class="mt-5">
 		        <form:label path="userName">User Name</form:label>
 		        <form:input path="userName" type="text" class="form-control"/>
 		        <form:errors path="userName" class="text-danger"/>
