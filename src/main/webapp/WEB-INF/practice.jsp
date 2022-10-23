@@ -38,8 +38,13 @@
 	<div class="container">
 		<div class="row mt-3">
 			<div class="col-sm-6 mt-5">
-				<div class="card">
-					<h5 class="p-5 text-center">{Vocabulary}</h5>
+				<div class="flip-card">
+					<div class="card">
+						<h5 class="p-5 text-center">{Vocabulary}</h5>
+					</div>
+					<div class="card">
+						<h5 class="p-5 text-center">{Definition}</h5>
+					</div>
 				</div>
 			</div>
 		</div>
