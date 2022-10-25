@@ -1,8 +1,4 @@
-/**
- * 
- */
- 
- $(".flipper").click(function() {
+$(".flipper").click(function() {
   var target = $( event.target );
   if ( target.is("a") ) {
     //follow that link
