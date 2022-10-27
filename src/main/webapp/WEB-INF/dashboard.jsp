@@ -19,13 +19,11 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<div class="container">
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">		
-				<a class="navbar-brand" href="/dashboard">Vocabee</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				</ul>
+			<a class="navbar-brand" href="/dashboard">Vocabee</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 				<div class="d-flex">
 					<a href="/logout" class="btn btn-outline-light me-2">Log Out</a>
 				</div>
@@ -37,27 +35,33 @@
 		<div class="row mt-5">
 			<h4 class="col">
 				<a href="/{deckbox_name}">Today</a>
-				<p>card # holder</p>
+				<br>
+				# of cards
 			</h4>
 			<h4 class="col">
 				<a href="">1 Day</a>
-				<p>card # holder</p>
+				<br>
+				# of cards
 			</h4>
 			<h4 class="col">
 				<a href="">7 Days</a>
-				<p>card # holder</p>
+				<br>
+				# of cards
 			</h4>
 			<h4 class="col">
 				<a href="">1 Month</a>
-				<p>card # holder</p>
+				<br>
+				# of cards
 			</h4>
 			<h4 class="col">
 				<a href="">3 Months</a>
-				<p>card # holder</p>
+				<br>
+				# of cards
 			</h4>
 			<h4 class="col">
 				<a href="">Retired</a>
-				<p>card # holder</p>
+				<br>
+				# of cards
 			</h4>
 		</div>
 		<table class="table table-striped">

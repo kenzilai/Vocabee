@@ -20,11 +20,11 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<div class="container">
+			<a class="navbar-brand" href="/dashboard">Vocabee</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">		
-				<a class="navbar-brand" href="/dashboard">Vocabee</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item">
 					    <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
@@ -37,8 +37,8 @@
   		</div>
 	</nav>
 	<div class="container">
-		<div class="row mt-3">
-			<div class="col-sm-6 mt-5">
+		<div class="row container">
+			<div class="col-lg mt-5">
 				<div class="flipper">
 					<div class="card">
 						<div class="front">
@@ -50,11 +50,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="mt-3">		
-			<button class="btn btn-danger">Incorrect</button>
-			<button class="btn btn-warning" style="color:#fff;">Partially</button>
-			<button class="btn btn-success">Correct</button>
+			<div class="mt-3">		
+				<button class="btn btn-danger">Incorrect</button>
+				<button class="btn btn-warning" style="color:#fff;">Partially</button>
+				<button class="btn btn-success">Correct</button>
+			</div>
 		</div>
 	</div>
 </body>

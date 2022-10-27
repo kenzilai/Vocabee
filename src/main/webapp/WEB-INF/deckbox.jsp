@@ -19,31 +19,24 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<div class="container">
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">		
-				<a class="navbar-brand" href="/dashboard">Vocabee</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-					    <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
-					</li>
-				</ul>
+			<a class="navbar-brand" href="/dashboard">Vocabee</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 				<div class="d-flex">
 					<a href="/logout" class="btn btn-outline-light me-2">Log Out</a>
 				</div>
 	  		</div>
   		</div>
 	</nav>
-	<div class="container-md">
-		<div class="row">
+	<div class="container">
+		<div class="d-flex">
 			<div class="col-sm-6 mt-5">
 				<h2>{Deck Box Name}</h2>
 				<h3>{#} Vocabularies</h3>
 			</div>
-			<div class="mt-5 col-sm-6">
-				<a href="/{deckbox_name}/practice" class="btn btn-success">Start Practice</a>	
-			</div>
+			<a href="/{deckbox_name}/practice" class="btn btn-success">Start Practice</a>	
 		</div>
 		<div class="row mt-3">
 			<div class="col-sm-6">
