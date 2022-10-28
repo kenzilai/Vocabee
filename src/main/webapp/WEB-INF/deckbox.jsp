@@ -33,41 +33,27 @@
 	<div class="container">
 		<div class="d-flex">
 			<div class="col-sm-6 mt-5">
-				<h2>{Deck Box Name}</h2>
+				<h2>${box}</h2>
 				<h3>{#} Vocabularies</h3>
 			</div>
-			<a href="/{deckbox_name}/practice" class="btn btn-success">Start Practice</a>	
 		</div>
+		<a href="/{deckbox_name}/practice" class="btn btn-success">Start Practice</a>	
 		<div class="row mt-3">
 			<div class="col-sm-6">
-				<div class="card">
-					<c:forEach items="${allUserVocabs}" var="vocabObj">
+				<c:forEach items="${allUserVocabs}" var="vocabObj">
+					<div class="card">
 						<h5 class="p-5 text-center">${vocabObj.word}</h5>
-					</c:forEach>
-				</div>
+					</div>
+				</c:forEach>
 			</div>
 			<div class="col-sm-6">
-				<div class="card">
-					<h5 class="p-5">{Definition}</h5>
-				</div>
+				<c:forEach items="${allUserVocabs}" var="vocabObj">
+					<div class="card">
+						<h5 class="p-5 text-center">${vocabObj.definition}</h5>
+					</div>
+				</c:forEach>
 			</div>
 		</div>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Word</th>
-					<th>Definition</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${allUserVocabs}" var="vocabObj">
-					<tr>
-						<td>${vocabObj.word}</td>
-						<td>${vocabObj.definition}</td>						
-					</tr>
-				</c:forEach>			
-			</tbody>				
-		</table>
 	</div>
 </body>
 </html>

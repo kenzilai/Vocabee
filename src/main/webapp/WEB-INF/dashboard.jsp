@@ -34,32 +34,32 @@
 		<h1 class="col-sm-6 mt-5">Welcome back, ${loggedInUser.userName}</h1>
 		<div class="row mt-5">
 			<h4 class="col">
-				<a href="/{deckbox_name}">Today</a>
+				<a href="/deck/{box}">Today</a>
 				<br>
 				# of cards
 			</h4>
 			<h4 class="col">
-				<a href="">1 Day</a>
+				<a href="/deck/1_day">1 Day</a>
 				<br>
 				# of cards
 			</h4>
 			<h4 class="col">
-				<a href="">7 Days</a>
+				<a href="/deck/7_days">7 Days</a>
 				<br>
 				# of cards
 			</h4>
 			<h4 class="col">
-				<a href="">1 Month</a>
+				<a href="/deck/1_month">1 Month</a>
 				<br>
 				# of cards
 			</h4>
 			<h4 class="col">
-				<a href="">3 Months</a>
+				<a href="/deck/3_months">3 Months</a>
 				<br>
 				# of cards
 			</h4>
 			<h4 class="col">
-				<a href="">Retired</a>
+				<a href="/deck/retired">Retired</a>
 				<br>
 				# of cards
 			</h4>

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.kenzi.vocabee.models.LoginUser;
@@ -88,8 +89,8 @@ public class HomeController {
     	return "redirect:/";
     }
     
-    @GetMapping("/{deckbox_name}")
-    public String deckbox(HttpSession session, Model model) {
+    @GetMapping("/deck/{box}")
+    public String deckbox(HttpSession session, Model model, @PathVariable("box") String box) {
         Long id = (Long) session.getAttribute("loggedInUserId");        
         if(id == null) {
         	return "redirect:/login";
@@ -100,6 +101,8 @@ public class HomeController {
         List<Vocabulary> allUserVocabs = this.vocabServ.findUserVocabularies(id);
         model.addAttribute("allUserVocabs", allUserVocabs);
         
+        model.addAttribute("box", box);
+
     	return "deckbox.jsp";
     }
     
