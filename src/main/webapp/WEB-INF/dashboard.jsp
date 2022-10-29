@@ -34,7 +34,7 @@
 		<h1 class="col-sm-6 mt-5">Welcome back, ${loggedInUser.userName}</h1>
 		<div class="row mt-5">
 			<h4 class="col">
-				<a href="/deck/{box}">Today</a>
+				<a href="/deck/new">Today</a>
 				<br>
 				# of cards
 			</h4>
