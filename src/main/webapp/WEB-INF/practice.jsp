@@ -42,7 +42,13 @@
 				<div class="flipper">
 					<div class="card">
 						<div class="front">
-							<h5 class="p-5 text-center">{Vocabulary}</h5>
+							<h5 class="p-5 text-center">
+								<c:forEach items="${allUserVocabs}" var="vocabObj">
+									<div class="card">
+										<h5 class="p-5 text-center">${vocabObj.word}</h5>
+									</div>
+								</c:forEach>
+							</h5>
 						</div>
 						<div class="back">
 							<h5 class="p-5 text-center">{Definition}</h5>

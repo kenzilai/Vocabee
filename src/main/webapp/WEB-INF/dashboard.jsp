@@ -34,27 +34,27 @@
 		<h1 class="col-sm-6 mt-5">Welcome back, ${loggedInUser.userName}</h1>
 		<div class="row mt-5">
 			<h4 class="col">
-				<a href="/deck/new">Today</a>
+				<a href="/deck/everyday">Every Day</a>
 				<br>
 				# of cards
 			</h4>
 			<h4 class="col">
-				<a href="/deck/1_day">1 Day</a>
+				<a href="/deck/every_2_days">Every 2 days</a>
 				<br>
 				# of cards
 			</h4>
 			<h4 class="col">
-				<a href="/deck/7_days">7 Days</a>
+				<a href="/deck/every_7_days">Every 7 days</a>
 				<br>
 				# of cards
 			</h4>
 			<h4 class="col">
-				<a href="/deck/1_month">1 Month</a>
+				<a href="/deck/every_1_month">Every 1 Month</a>
 				<br>
 				# of cards
 			</h4>
 			<h4 class="col">
-				<a href="/deck/3_months">3 Months</a>
+				<a href="/deck/every_3_months">Every 3 Months</a>
 				<br>
 				# of cards
 			</h4>
